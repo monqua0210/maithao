@@ -1,12 +1,12 @@
 body {
-    font-family: 'Pacifico', cursive; /* Thay đổi phông chữ */
-    background-image: url('phong1.jpg'); /* Hình nền */
+    font-family: 'Pacifico', cursive;
+    background-image: url('phong1.jpg');
     background-size: cover;
     background-position: center;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Chiều cao trang */
-    overflow: hidden; /* Ẩn cuộn của trang */
+    height: 100vh;
+    overflow: hidden;
 }
 
 header {
@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: calc(100vh - 140px); /* Chiều cao phần chính trừ chiều cao header */
+    height: calc(100vh - 140px);
     position: relative;
 }
 
@@ -33,14 +33,15 @@ header {
 
 .kiss-image {
     display: block;
-    margin: 20px auto; /* Căn giữa ảnh */
+    margin: 20px auto;
 }
 
 .side-images {
     position: relative;
-    width: 500px; /* Điều chỉnh chiều rộng cho khung ảnh lớn hơn */
-    height: 600px; /* Điều chỉnh chiều cao cho khung ảnh lớn hơn */
-    overflow: hidden; /* Ẩn phần bên ngoài */
+    width: 90%; /* Thay đổi để sử dụng 90% chiều rộng */
+    max-width: 300px; /* Đặt chiều rộng tối đa */
+    height: auto; /* Đặt chiều cao tự động */
+    overflow: hidden;
 }
 
 .image-container {
@@ -51,61 +52,51 @@ header {
 
 .image-slide {
     position: absolute;
-    bottom: -100%;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out, bottom 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .image-slide.active {
     opacity: 1;
-    bottom: 0;
-}
-
-/* Điều chỉnh kích thước ảnh cho vừa với khung mà vẫn giữ tỷ lệ */
-.image-slide img {
-    width: 100%; /* Đảm bảo ảnh luôn vừa với khung chứa */
-    height: auto; /* Giữ tỷ lệ ảnh */
-    object-fit: contain; /* Giữ tỷ lệ mà không bị cắt */
 }
 
 .left {
     position: absolute;
-    left: 20px; /* Căn trái */
+    left: 10%; /* Căn trái hơn cho màn hình nhỏ */
 }
 
 .right {
     position: absolute;
-    right: 20px; /* Căn phải */
+    right: 10%; /* Căn phải hơn cho màn hình nhỏ */
 }
 
 .letter {
     flex-grow: 1;
-    padding: 60px;
+    padding: 20px; /* Giảm padding cho bức thư */
     background-color: rgba(255, 255, 255, 0.9);
     border: 2px solid rgba(255, 107, 129, 0.8);
     border-radius: 10px;
-    margin: 0 600px; /* Giảm margin để làm bức thư hẹp lại */
+    margin: 20px; /* Thay đổi margin cho bức thư */
     text-align: center;
-    height: 600px; /* Chiều cao bức thư */
-    font-size: 1.5em;
+    height: auto; /* Chiều cao tự động cho bức thư */
+    font-size: 1em; /* Giảm kích thước chữ cho màn hình nhỏ */
     overflow-y: auto;
     z-index: 1;
 }
 
-#password {
+#password, #submit {
+    width: 90%; /* Đặt chiều rộng cho các ô nhập */
+    max-width: 300px; /* Đặt chiều rộng tối đa */
     padding: 10px;
     font-size: 1em;
     border-radius: 5px;
     border: 1px solid #ccc;
+    margin: 10px auto; /* Căn giữa các ô nhập */
 }
 
 #submit {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
     background-color: rgba(255, 107, 129, 0.8);
     color: white;
     cursor: pointer;
@@ -113,4 +104,22 @@ header {
 
 #submit:hover {
     background-color: rgba(255, 107, 129, 1);
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Sắp xếp theo cột trên màn hình nhỏ */
+        align-items: center; /* Căn giữa các phần tử */
+    }
+
+    .letter {
+        margin: 0; /* Không có margin trên bức thư */
+        padding: 10px; /* Giảm padding */
+    }
+
+    .side-images {
+        width: 100%; /* Chiều rộng 100% cho các hình ảnh */
+        height: auto; /* Chiều cao tự động */
+    }
 }
