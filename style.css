@@ -38,8 +38,8 @@ header {
 
 .side-images {
     position: relative;
-    width: 500px; /* Điều chỉnh chiều rộng cho khung ảnh lớn hơn */
-    height: 600px; /* Điều chỉnh chiều cao cho khung ảnh lớn hơn */
+    width: 500px; /* Chiều rộng cho khung ảnh lớn hơn */
+    height: 600px; /* Chiều cao cho khung ảnh lớn hơn */
     overflow: hidden; /* Ẩn phần bên ngoài */
 }
 
@@ -66,8 +66,8 @@ header {
 /* Điều chỉnh kích thước ảnh cho vừa với khung mà vẫn giữ tỷ lệ */
 .image-slide img {
     width: 100%; /* Đảm bảo ảnh luôn vừa với khung chứa */
-    height: auto; /* Giữ tỷ lệ ảnh */
-    object-fit: contain; /* Giữ tỷ lệ mà không bị cắt */
+    height: 100%; /* Giữ tỷ lệ ảnh */
+    object-fit: cover; /* Cắt ảnh nếu cần để giữ tỷ lệ */
 }
 
 .left {
@@ -125,6 +125,11 @@ header {
     .side-images {
         width: 90%; /* Đặt chiều rộng tối đa cho hình ảnh */
         height: auto; /* Chiều cao tự động */
+    }
+
+    .image-slide img {
+        height: auto; /* Giữ tỷ lệ ảnh */
+        max-height: 400px; /* Giới hạn chiều cao tối đa cho ảnh */
     }
 
     .letter {
