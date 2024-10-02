@@ -1,11 +1,11 @@
 document.getElementById('submit').addEventListener('click', function() {
     const passwordInput = document.getElementById('password');
-    const correctPassword = '0'; // Thay đổi ngày yêu nhau của bạn ở đây
+    const correctPassword = '021022'; 
     const content = document.getElementById('content');
 
     if (passwordInput.value === correctPassword) {
         content.style.display = 'flex'; // Hiển thị nội dung
-        document.querySelector('.password-section').style.display = 'none'; // Ẩn phần nhập mật khẩu
+        document.querySelector('.password-section').style.display = 'none'; 
         document.getElementById('background-music').play(); // Bắt đầu phát nhạc
         startImageSlideshow(); // Bắt đầu slideshow hình ảnh
     } else {
